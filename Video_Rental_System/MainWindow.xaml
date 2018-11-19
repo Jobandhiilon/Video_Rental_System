@@ -1,0 +1,16 @@
+﻿<Window x:Class="Video_Rental_System.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Video_Rental_System"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Grid.Name="welcome" Panel.Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Image FrameworkElement.Name="image1" FrameworkElement.Height="419" FrameworkElement.HorizontalAlignment="Left" Image.Stretch=" Fill" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="792" Image.StretchDirection="Both" UIElement.SnapsToDevicePixels="False" FrameworkElement.OverridesDefaultStyle="False" />
+        <Label HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="279,1,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="48" Control.Foreground="#FF4E1351" />
+        <Button Button.Name="login" ContentControl.Content="Login" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="146" FrameworkElement.Margin="312,137,0,0" FrameworkElement.Height="62" Control.FontFamily="Segoe UI Semibold" Control.FontSize="36" Control.Background="#FFFBFB21" Control.Foreground="#FF211E1E" Click="login_Click" />
+        <Button Button.Name="register" ContentControl.Content="Register" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="144" FrameworkElement.Margin="314,273,0,0" FrameworkElement.Height="62" Control.FontSize="36" Control.FontFamily="Segoe UI Semibold" Control.Background="#FFEFF915" Control.Foreground="#FF191818" Click="register_Click" />
+    </Grid>
+
+</Window>

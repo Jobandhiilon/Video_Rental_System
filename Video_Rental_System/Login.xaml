@@ -1,0 +1,18 @@
+﻿<Window x:Class="Video_Rental_System.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Video_Rental_System"
+        mc:Ignorable="d"
+        Title="Login" Height="690.833" Width="1163.333">
+    <Grid Grid.Name="formlogin" FrameworkElement.Margin="0,0,-8,0" Panel.Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Label ContentControl.Content="Login" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Margin="461,10,0,534" FrameworkElement.Width="211" Control.FontFamily="Segoe UI Semibold" Control.FontSize="72" />
+        <Label Label.Name="Username_lbl" ContentControl.Content="Username" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="144,233,0,0" FrameworkElement.Height="76" FrameworkElement.Width="201" Control.FontFamily="Segoe UI Semibold" Control.FontSize="36" />
+        <Label Label.Name="Password_lbl" ContentControl.Content="Password" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="144,391,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="36" FrameworkElement.Height="61" FrameworkElement.Width="166" />
+        <TextBox Name="TxtBox_UserName" HorizontalAlignment="Left" Height="64" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Margin="552,239,0,0" FontSize="22" />
+        <TextBox Name="TxtBox_Password" HorizontalAlignment="Left" Height="64" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Margin="552,393,0,0" FontSize="22" />
+        <Button Button.Name="Submit" ContentControl.Content="Submit" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="211" FrameworkElement.Margin="390,524,0,0" FrameworkElement.Height="78" Control.FontSize="48" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF5D5B5B" Control.Foreground="#FFF5ECEC" />
+    </Grid>
+
+</Window>

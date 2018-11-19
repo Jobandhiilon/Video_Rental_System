@@ -1,0 +1,23 @@
+﻿<Window x:Class="Video_Rental_System.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Video_Rental_System"
+        mc:Ignorable="d"
+        Title="Register" Height="450" Width="800">
+    <Grid Grid.Name="Registration" Panel.Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <Label HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="119,53,0,0" FrameworkElement.Height="34" FrameworkElement.Width="80" />
+        <Label Label.Name="UserId" ContentControl.Content="User ID" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="54,57,0,0" FrameworkElement.Height="39" FrameworkElement.Width="98" Control.FontFamily="Segoe UI Semibold" Control.FontSize="24" UIElement.RenderTransformOrigin="0.461,0.09" />
+        <Label Label.Name="Password" ContentControl.Content="Password" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="54,114,0,0" Control.FontSize="24" Control.FontFamily="Segoe UI Semibold" />
+        <Label Label.Name="FullName" ContentControl.Content="Full Name" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="54,174,0,0" FrameworkElement.Height="43" FrameworkElement.Width="120" Control.FontFamily="Segoe UI Semibold" Control.FontSize="24" />
+        <Label Label.Name="Age" ContentControl.Content="Age" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="54,236,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="24" />
+        <TextBox Name="UserId_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="43" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="247" FrameworkElement.Margin="345,59,0,0" Control.FontSize="22" Control.FontFamily="Segoe UI Semibold" />
+        <TextBox Name="Password_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="43" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="247" FrameworkElement.Margin="345,118,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="22" />
+        <TextBox Name="FullName_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="42" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="247" FrameworkElement.Margin="345,178,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="22" />
+        <TextBox Name="Age_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="42" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="247" FrameworkElement.Margin="345,238,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="22" />
+        <Label Label.Name="Registration1" ContentControl.Content="Registration" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="65" FrameworkElement.Width="221" FrameworkElement.Margin="280,-11,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="36" />
+        <Button Button.Name="Submit_btn" ContentControl.Content="Submit" FrameworkElement.Width="153" Control.Background="#FF636060" Control.BorderBrush="#FFFDF8F8" Control.Foreground="#FFFDF2F2" FrameworkElement.Height="32" FrameworkElement.Margin="296,334,343,53" />
+    </Grid>
+
+</Window>
