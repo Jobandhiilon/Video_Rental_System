@@ -11,7 +11,7 @@ namespace Video_Rental_System
 {
     class Video
     {
-        private SqlConnection Conn = new SqlConnection(@"Data Source=dhillon\sqlexpress01;Initial Catalog=LoginDB;Integrated Security=True");
+        private SqlConnection Conn = new SqlConnection(@"Data Source=dhillon\sqlexpress;Initial Catalog=LoginDB;Integrated Security=True");
         private SqlCommand Cmd = new SqlCommand();
         private SqlDataReader SqlReader;
         private string Str;
@@ -99,21 +99,21 @@ namespace Video_Rental_System
         {
             try
             {
-                this.Cmd.Parameters.Clear();
-                this.Cmd.Connection = this.Conn;
-                this.Str = "Update Movies Set Rating = @Rating, Title = @Title, Year = @Year, Rental_Cost = @Rental_Cost, Copies = @Copies, Plot= @Plot, Genre = @Genre where MovieID = @MovieID";
+                Cmd.Parameters.Clear();
+                Cmd.Connection = Conn;
+                Str = "Update Movies Set Rating = @Rating, Title = @Title, Year = @Year, Rental_Cost = @Rental_Cost, Copies = @Copies, Plot= @Plot, Genre = @Genre where MovieID = @MovieID";
                 SqlParameter[] parameterArray = new SqlParameter[] { new SqlParameter("@MovieID", MovieID), new SqlParameter("@Rating", Rating), new SqlParameter("@Title", Title), new SqlParameter("@Year", Year), new SqlParameter("@Rental_Cost", Rental_Cost), new SqlParameter("@Copies", Year), new SqlParameter("@Plot", Plot), new SqlParameter("@Genre", Genre) };
-                this.Cmd.Parameters.Add(parameterArray[0]);
-                this.Cmd.Parameters.Add(parameterArray[1]);
-                this.Cmd.Parameters.Add(parameterArray[2]);
-                this.Cmd.Parameters.Add(parameterArray[3]);
-                this.Cmd.Parameters.Add(parameterArray[4]);
-                this.Cmd.Parameters.Add(parameterArray[5]);
-                this.Cmd.Parameters.Add(parameterArray[6]);
-                this.Cmd.Parameters.Add(parameterArray[7]);
-                this.Cmd.CommandText = this.Str;
-                this.Conn.Open();
-                this.Cmd.ExecuteNonQuery();
+                Cmd.Parameters.Add(parameterArray[0]);
+                Cmd.Parameters.Add(parameterArray[1]);
+                Cmd.Parameters.Add(parameterArray[2]);
+                Cmd.Parameters.Add(parameterArray[3]);
+                Cmd.Parameters.Add(parameterArray[4]);
+                Cmd.Parameters.Add(parameterArray[5]);
+                Cmd.Parameters.Add(parameterArray[6]);
+                Cmd.Parameters.Add(parameterArray[7]);
+                Cmd.CommandText = Str;
+                Conn.Open();
+                Cmd.ExecuteNonQuery();
             }
             catch (Exception exception)
             {

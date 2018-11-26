@@ -12,7 +12,7 @@ namespace Video_Rental_System
     class Customer_Data
     {
         // Fields
-        private SqlConnection Sqlconn = new SqlConnection(@"Data Source=dhillon\sqlexpress01;Initial Catalog=LoginDB;Integrated Security=True");
+        private SqlConnection Sqlconn = new SqlConnection(@"Data Source=dhillon\sqlexpress;Initial Catalog=LoginDB;Integrated Security=True");
         private SqlCommand Sqlcmd = new SqlCommand();
         private SqlDataReader SqlReader;
         private string Sqlstr;
@@ -47,6 +47,7 @@ namespace Video_Rental_System
         {
             try
             {
+                Sqlcmd.Parameters.Clear();
                 this.Sqlcmd.Connection = this.Sqlconn;
                 this.Sqlstr = "Delete from Customer where CustID like @CustomerID";
                 SqlParameter[] parameterArray = new SqlParameter[] { new SqlParameter("@CustomerID", CustomerID) };

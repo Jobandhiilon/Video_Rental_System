@@ -12,7 +12,7 @@
         <Label Label.Name="Password_lbl" ContentControl.Content="Password" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="144,391,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="36" FrameworkElement.Height="61" FrameworkElement.Width="166" />
         <TextBox Name="TxtBox_UserName" HorizontalAlignment="Left" Height="64" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Margin="552,239,0,0" FontSize="22" />
         <TextBox Name="TxtBox_Password" HorizontalAlignment="Left" Height="64" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Margin="552,393,0,0" FontSize="22" />
-        <Button Button.Name="Submit" ContentControl.Content="Submit" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="211" FrameworkElement.Margin="390,524,0,0" FrameworkElement.Height="78" Control.FontSize="48" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF5D5B5B" Control.Foreground="#FFF5ECEC" />
+        <Button Button.Name="Submit" ContentControl.Content="Submit" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="211" FrameworkElement.Margin="390,524,0,0" FrameworkElement.Height="78" Control.FontSize="48" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF5D5B5B" Control.Foreground="#FFF5ECEC" Click="Submit_Click" />
     </Grid>
 
 </Window>

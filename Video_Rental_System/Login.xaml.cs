@@ -23,14 +23,14 @@ namespace Video_Rental_System
         public Login()
         {
             InitializeComponent();
-            base.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             int userid = Convert.ToInt32(TxtBox_UserName.Text);
-            if (this.obj_login.User_Log_method(userid, TxtBox_Password.Text))
+            if (obj_login.User_Log_method(userid, TxtBox_Password.Text))
             {
                 MessageBox.Show("Login Successful");
                 new Admin().ShowDialog();
@@ -44,5 +44,6 @@ namespace Video_Rental_System
             }
         }
 
+      
     }
 }

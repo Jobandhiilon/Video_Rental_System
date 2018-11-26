@@ -27,13 +27,13 @@ namespace Video_Rental_System
 
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             new Login().Show();
             base.Close();
         }
 
-        private void register_Click(object sender, RoutedEventArgs e)
+        private void Register_Click(object sender, RoutedEventArgs e)
         {
             new Register().Show();
             base.Close();
