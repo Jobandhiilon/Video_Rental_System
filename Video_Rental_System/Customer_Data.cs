@@ -12,7 +12,7 @@ namespace Video_Rental_System
     class Customer_Data
     {
         // Fields
-        private SqlConnection Sqlconn = new SqlConnection(@"Data Source=dhillon\sqlexpress;Initial Catalog=LoginDB;Integrated Security=True");
+        private SqlConnection Sqlconn = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
         private SqlCommand Sqlcmd = new SqlCommand();
         private SqlDataReader SqlReader;
         private string Sqlstr;

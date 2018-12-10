@@ -77,6 +77,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -99,12 +101,26 @@
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer_Data.cs" />
+    <Compile Include="CustomerRate.xaml.cs">
+      <DependentUpon>CustomerRate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MovieRate.xaml.cs">
+      <DependentUpon>MovieRate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="User_Login.cs" />
     <Compile Include="Video.cs" />
     <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerRate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MovieRate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

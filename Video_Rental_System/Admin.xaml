@@ -14,20 +14,38 @@
         <TabControl TabControl.Name="Admin_TabControl" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="330" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="450">
             <TabItem TabItem.Name="Tab_Customer" HeaderedContentControl.Header="Customer" Loaded="Tab_Customer_Loaded">
                 <Grid FrameworkElement.Margin="2,2,0,0">
-                    <DataGrid Name="DG_Customer" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FFF0FFFF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.HeadersVisibility="Column" DataGrid.CanUserResizeColumns="True" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.Margin="2,2,0,0" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="450" MouseDoubleClick="SelectCustomerRow" />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="322*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="DG_Customer" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FFF0FFFF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.HeadersVisibility="Column" DataGrid.CanUserResizeColumns="True" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" Margin="2,2,-10,-2" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="450" MouseDoubleClick="SelectCustomerRow" Grid.ColumnSpan="3" />
                 </Grid>
             </TabItem>
             <TabItem TabItem.Name="Tab_Video" HeaderedContentControl.Header="Video" FrameworkElement.VerticalAlignment="Top" Loaded="Tab_Video_Loaded">
                 <Grid FrameworkElement.Margin="2,2,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="29*"/>
-                        <ColumnDefinition Width="413*"/>
+                        <ColumnDefinition Width="51*"/>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="317*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Name="VideoDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF0F8FF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FF0000FF" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="442" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="2" MouseDoubleClick="SelectVideoRow" />
+                    <DataGrid Name="VideoDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF0F8FF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FF0000FF" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="442" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="SelectVideoRow" SelectionChanged="VideoDG_SelectionChanged" />
                 </Grid>
             </TabItem>
-            <TabItem HeaderedContentControl.Header="Rental">
-                <Grid Grid.Name="RentalDG" Panel.Background="#FFA05D05" FrameworkElement.Margin="0,-2,0,2" />
+            <TabItem x:Name="Tab_Rented" HeaderedContentControl.Header="Rental" Margin="-2,0" Loaded="Tab_Rented_Loaded" GotFocus="Tab_Rented_GotFocus">
+                <Grid Grid.Name="RentalDG" Panel.Background="#FFA05D05" Margin="-9,0,-1,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="74*"/>
+                        <ColumnDefinition Width="263*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Name="RentedDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF0F8FF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FF0000FF" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" Width="454" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="RentedDG_MouseDoubleClick"/>
+
+
+                </Grid>
             </TabItem>
         </TabControl>
         <Button x:Name="Exit_btn" ContentControl.Content="Exit" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="110" FrameworkElement.Height="50" Margin="30,637,0,0" Control.FontSize="24" Control.FontFamily="Segoe UI Semibold" UIElement.RenderTransformOrigin="0.5,0.5" Control.Background="#FF615B5B" Control.Foreground="#FFF5EEEE" Grid.Column="1" Click="Exit_Button_Click" />
@@ -48,32 +66,39 @@
         <Label Label.Name="Rating_lable" ContentControl.Content="Rating" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="40" FrameworkElement.Width="111" FrameworkElement.Margin="480,50,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <Label Label.Name="Title_lable" ContentControl.Content="Title" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="480,90,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <Label Label.Name="Year_lable" ContentControl.Content="Year" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="480,130,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
-        <Label Label.Name="Rental_Cost_Lable" ContentControl.Content="Rental cost" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="480,170,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
+        <Label Label.Name="Rental_Cost_Lable" Content="Rental cost ($)" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" Width="126" Margin="465,170,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <Label Label.Name="Copie_lable" ContentControl.Content="Copies" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="38" FrameworkElement.Width="111" FrameworkElement.Margin="750,50,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <Label Label.Name="Plot_lable" ContentControl.Content="Plot" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="750,90,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <Label Label.Name="Genre_lable" ContentControl.Content="Genre" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="750,130,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <TextBox Name="Rating_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,50,0,0" />
         <TextBox Name="Title_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,90,0,0" />
-        <TextBox Name="Year_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,130,0,0" />
-        <TextBox Name="Rental_Cost_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,170,0,0" />
-        <TextBox Name="Copies_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="850,50,0,0" />
-        <TextBox Name="Plot_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="850,90,0,0" />
+        <TextBox Name="Year_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,130,0,0" LostFocus="Year_TextBox_LostFocus" />
+        <TextBox Name="Rental_Cost_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="600,170,0,0" TextChanged="Rental_Cost_TextBox_TextChanged" />
+        <TextBox Name="Copies_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="850,50,0,0" LostFocus="Copies_TextBox_LostFocus" />
+        <TextBox Name="Plot_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="850,90,0,0"/>
         <TextBox Name="Genre_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="850,130,0,0" />
         <Button Name="Add_Video" ContentControl.Content="Add" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="90" FrameworkElement.Height="50" Margin="50,50,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF454742" Control.Foreground="#FFE4DDDD" Grid.Column="1" Click="Add_Video_Click" />
         <Button Button.Name="Update_Video" ContentControl.Content="Update" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="90" FrameworkElement.Height="50" Margin="50,120,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF444643" Control.Foreground="#FFE8E6E6" Grid.Column="1" Click="Update_Video_Click" />
         <Button Button.Name="Delete_Video" Content="Delete" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="90" FrameworkElement.Height="50" Margin="50,190,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" Control.Background="#FF4A4B48" Control.Foreground="#FFEADFDF" Grid.Column="1" Click="Delete_Video_Click" />
         <Label ContentControl.Content="Rental Video" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="46" FrameworkElement.Width="201" Control.FontSize="24" Control.FontFamily="Segoe UI Semibold" FrameworkElement.Margin="700,350,0,0" />
         <Label Label.Name="MovieDFK_lable" ContentControl.Content="MovieDFK" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="650,400,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
-        <Label Label.Name="CustDFK_lable" ContentControl.Content="CustDFK" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="650,440,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
-        <Label Label.Name="DateRented_lable" ContentControl.Content="Date Rented" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" FrameworkElement.Margin="650,480,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
-        <Label Label.Name="DateReturned_lable" ContentControl.Content="Date Returned" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="131" FrameworkElement.Margin="650,520,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
-        <TextBox TextBox.Name="MovieDFK_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="790,400,0,0" />
+        <Label Label.Name="CustDFK_lable" ContentControl.Content="CustDFK" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" FrameworkElement.Width="111" Margin="650,443,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
+        <Label Label.Name="DateRented_lable" Content="Date Rented(DD/MM/YYYY)" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" Width="241" Margin="520,480,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
+        <Label Label.Name="DateReturned_lable" Content="Date Returned(DD/MM/YYYY)" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Height="32" Width="261" Margin="520,520,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" />
         <TextBox Name="CustDFK_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="790,440,0,0" />
         <TextBox Name="DateRented_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="790,480,0,0" />
         <TextBox Name="DateReturned_TextBox" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="35" FrameworkElement.Width="130" TextBox.TextWrapping="Wrap" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Margin="790,520,0,0" />
-        <Button x:Name="Issue_Movie" Content="Issue Movie" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" Width="126" FrameworkElement.Height="50" Margin="30,380,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF454742" Control.Foreground="#FFE4DDDD" Grid.Column="1" />
-        <Button x:Name="return_Movie" Content="Return Movie" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" Width="126" FrameworkElement.Height="50" Margin="30,450,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF444643" Control.Foreground="#FFE8E6E6" Grid.Column="1" />
-        <Button Button.Name="Delete_RentalVideo" ContentControl.Content="Delete" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="90" FrameworkElement.Height="50" Margin="50,520,0,0" Control.FontFamily="Segoe UI Semibold" Control.FontSize="18" Control.Background="#FF4A4B48" Control.Foreground="#FFEADFDF" Grid.Column="1" />
+        <Button x:Name="Issue_Movie" Content="Issue Movie" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" Width="126" FrameworkElement.Height="50" Margin="30,380,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF454742" Control.Foreground="#FFE4DDDD" Grid.Column="1" Click="Issue_Movie_Click" />
+        <Button x:Name="Return_Movie" Content="Return Movie" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Top" Width="126" FrameworkElement.Height="50" Margin="30,450,0,0" Control.FontSize="18" Control.FontFamily="Segoe UI Semibold" Control.Background="#FF444643" Control.Foreground="#FFE8E6E6" Grid.Column="1" Click="Return_Movie_Click" />
+
+        <Button x:Name="Delete_Movie_Rent" Content="Delete Returned Movie" HorizontalAlignment="Left" Margin="668,580,0,0" VerticalAlignment="Top" Width="277" Height="43" Background="#FF403B3B" Foreground="#FFF0E5E5" FontSize="18" Click="Delete_Movie_Rent_Click" />
+
+        <TextBox x:Name="MovieDFK_TextBox" HorizontalAlignment="Left" Height="35" Width="130" TextWrapping="Wrap" VerticalAlignment="Top" Margin="790,395,0,0" />
+        <Button x:Name="Customer_Rate" Content="Customer Rate" HorizontalAlignment="Left" Margin="700,642,0,0" VerticalAlignment="Top" Width="155" Height="43" Background="#FF403B3B" Foreground="#FFF0E5E5" FontSize="18" Click="Customer_Rate_Click"/>
+        <Button x:Name="Movie_Rate" Content="Movie Rate" HorizontalAlignment="Left" Margin="520,642,0,0" VerticalAlignment="Top" Width="155" Height="43" Background="#FF403B3B" Foreground="#FFF0E5E5" FontSize="18" Click="Movie_Rate_Click"/>
+
+
+
     </Grid>
 
 </Window>

@@ -29,7 +29,7 @@ namespace Video_Rental_System
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=LoginDB;Integrated Security=True");
+            SqlConnection connection = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
             try
             {
                 SqlCommand command1 = new SqlCommand

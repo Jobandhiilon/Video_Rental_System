@@ -11,7 +11,7 @@ namespace Video_Rental_System
 {
     class User_Login
     {
-       SqlConnection Sqlconn = new SqlConnection(@"Data Source = DHILLON\SQLEXPRESS; Initial Catalog = LoginDB; Integrated Security = True");
+       SqlConnection Sqlconn = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
        SqlCommand Sqlcmd = new SqlCommand();
        SqlDataReader SqlReader;
        string Sqlstr;
