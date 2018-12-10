@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Video_Rental_System"
         mc:Ignorable="d"
-        Title="Admin" Height="790" Width="1165.425">
+        Title="Admin" Height="742" Width="1308">
     <Grid Grid.Name="admin" Panel.Background="#FFCBDA36" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Margin="0,0,-30,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="197*" />
@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="45*"/>
                         <ColumnDefinition Width="317*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid Name="VideoDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF0F8FF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FF0000FF" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="442" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="SelectVideoRow" SelectionChanged="VideoDG_SelectionChanged" />
+                    <DataGrid Name="VideoDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FFF0FFFF" DataGrid.RowBackground="#FFF5F5DC" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" FrameworkElement.Width="442" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="SelectVideoRow" SelectionChanged="VideoDG_SelectionChanged" />
                 </Grid>
             </TabItem>
             <TabItem x:Name="Tab_Rented" HeaderedContentControl.Header="Rental" Margin="-2,0" Loaded="Tab_Rented_Loaded" GotFocus="Tab_Rented_GotFocus">
@@ -42,7 +42,7 @@
                         <ColumnDefinition Width="263*"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Name="RentedDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF0F8FF" DataGrid.RowBackground="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FF0000FF" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" Width="454" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="RentedDG_MouseDoubleClick"/>
+                    <DataGrid Name="RentedDG" DataGrid.CanUserAddRows="False" DataGrid.CanUserSortColumns="True" Control.Background="#FFF5F5DC" DataGrid.AlternatingRowBackground="#FFF0FFFF" DataGrid.RowBackground="#FFF5F5DC" FrameworkElement.HorizontalAlignment="Left" FrameworkElement.Height="300" FrameworkElement.VerticalAlignment="Top" Width="454" FrameworkElement.Margin="0,0,0,0" Grid.ColumnSpan="4" MouseDoubleClick="RentedDG_MouseDoubleClick"/>
 
 
                 </Grid>

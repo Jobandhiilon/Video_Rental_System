@@ -165,11 +165,9 @@ namespace Video_Rental_System
                     Phone_TextBox.Text = "";
                     CustDFK_TextBox.Text = "";
                 }
-
-
-
             }
         }
+
 
         private void Delete_Video_Click(object sender, RoutedEventArgs e)
         {
@@ -188,28 +186,16 @@ namespace Video_Rental_System
                 if (y==0)
                 {
                     String qry = "";
-                    qry = "select * from RentedMovie where MovieIDFK="+movieID+"";
-                    DataTable tbl = new DataTable();
-                    tbl = this.getRecords(qry);
-                    if (tbl.Rows.Count == 0)
-                    {
-                        //delete the video using the video id from the Tables using the Video class function
+                         //delete the video using the video id from the Tables using the Video class function
                         Obj_video.Delete_video(MovieID);
 
                         //after that record also delete from tbMovies from the table
                         qry = "";
                         qry = "delete from tbMovies where MovieID=" + movieID + "";
                         this.runIDU(qry);
-
-
                         MessageBox.Show("Video Deleted");
 
-                    }
-                    else {
-                        MessageBox.Show("Vidoe is ON Rent You Can't Delete it Now");
-
-                    }
-                    //reload the data to Grid after deleteing the record
+                     //reload the data to Grid after deleteing the record
                     VideoDG.ItemsSource = Obj_video.LoadvideoData().DefaultView;
                     Rating_TextBox.Text = "";
                     Title_TextBox.Text = "";
@@ -225,7 +211,7 @@ namespace Video_Rental_System
                 }
                 else
                 {
-                    MessageBox.Show("First return movie then delete it");
+                    MessageBox.Show("Movie is on Rent, so first return movie then delete it");
                 }
             }
         }
@@ -683,7 +669,7 @@ namespace Video_Rental_System
             DataTable tbl = new DataTable();
             tbl = this.getRecords(qry);
             String msg = "";
-            msg = tbl.Rows[0]["FirstName"]+" "+ tbl.Rows[0]["LastName"]+" Takes most Movies on Rent Like"+ tbl.Rows[0]["Cnt"]+" Times";
+            msg = tbl.Rows[0]["FirstName"]+" "+ tbl.Rows[0]["LastName"]+" rented most movies i.e. "+ tbl.Rows[0]["Cnt"]+" movies";
             MessageBox.Show(msg);
 
 
@@ -710,7 +696,7 @@ namespace Video_Rental_System
             DataTable tbl = new DataTable();
             tbl = this.getRecords(qry);
             String msg = "";
-            msg ="The Most Rated Movie ID is" +tbl.Rows[0]["MovieID"] + " Name is  " + tbl.Rows[0]["Title"] + " Takes on Rent " + tbl.Rows[0]["Cnt"] + " Times";
+            msg ="The most popular movie is " + tbl.Rows[0]["Title"] + " (ID " + tbl.Rows[0]["MovieID"] + ") , rented " + tbl.Rows[0]["Cnt"] + " times";
             MessageBox.Show(msg);
 
 
