@@ -150,7 +150,7 @@ namespace Video_Rental_System
                 if (tbl.Rows.Count > 0)
                 {
                     //display the message if he has a movie on rent 
-                    MessageBox.Show("First Return the Movie then you can delete your Record");
+                    MessageBox.Show("Sorry,this customer didn't return the movie.");
                 }
                 else {
                     //if the customer does not have a movie on rent the cusotmer reocrd will be deleted from the table using the delete query and object of the Customer class 
