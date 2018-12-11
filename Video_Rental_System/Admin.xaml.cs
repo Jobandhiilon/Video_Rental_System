@@ -75,6 +75,7 @@ namespace Video_Rental_System
             //update the whole record of the Customer and pass the data to the Update_Customer function using the object of the class
             string text = FirstName_TextBox.Text;
             Obj_Customer.Update_Customer(CustomerID,FirstName_TextBox.Text, LastName_TextBox.Text, Address_TextBox.Text, Convert.ToInt32(Phone_TextBox.Text));
+            //pop up customer update message.
             MessageBox.Show("Customer Updated");
             DG_Customer.ItemsSource = Obj_Customer.LoadCustomerData().DefaultView;
             FirstName_TextBox.Text = "";
@@ -109,6 +110,7 @@ namespace Video_Rental_System
 
             CustDFK_TextBox.Text = Convert.ToString(CustomerID);
 
+            // this code Automatically get current date
             DateRented_TextBox.Text = DateTime.Today.ToString("dd-MM-yyyy");
 
             FirstName_TextBox.Text = Convert.ToString(view["FirstName"]);
@@ -124,6 +126,7 @@ namespace Video_Rental_System
             DataRowView view = (DataRowView)VideoDG.SelectedItems[0];
             MovieID = Convert.ToInt32(view["MovieID"]);
 
+            // this code Automatically get current date
             DateRented_TextBox.Text = DateTime.Today.ToString("dd-MM-yyyy");
 
             MovieDFK_TextBox.Text = Convert.ToString(MovieID);
@@ -211,6 +214,7 @@ namespace Video_Rental_System
                 }
                 else
                 {
+                    //it will be show the pop up message hwen a customer didn't return a movie but you trying to delete his account.
                     MessageBox.Show("Movie is on Rent, so first return movie then delete it");
                 }
             }
@@ -349,7 +353,7 @@ namespace Video_Rental_System
 
 
 
-                    // customer Ratting  to keep the record of the customer that how much he has booked movie 
+                    // customer Ratting  to keep the record of the customer that how many movies a customer rented 
 
                     //using select query we get the counting of the customer using the select query 
                     qry = "";
@@ -416,15 +420,13 @@ namespace Video_Rental_System
                 }
                 else
                     {
-                        MessageBox.Show("All Copies are Booked ");
+                    // pop up message when no nore copies of movies in the storage.
+                        MessageBox.Show("All Copies are rented out ");
                     }
 
 
                 }
-            /*}
-            catch (Exception excpt) {
-                MessageBox.Show(excpt.Message);
-            }*/
+            
 
             
         }
@@ -707,6 +709,7 @@ namespace Video_Rental_System
 
         }
 
+        // for deleting the movie data from the grid which is returned.
         private void Delete_Movie_Rent_Click(object sender, RoutedEventArgs e)
         {
             String qry = "";
@@ -715,6 +718,7 @@ namespace Video_Rental_System
             tbl = this.getRecords(qry);
             if (tbl.Rows[0]["DateReturned"].ToString().Equals("Date Returned"))
             {
+                // pop up message when the customer didn't returned the movie
                 MessageBox.Show("You Can't Delete the Movie Record it is on Rental Movie");
             }
             else {

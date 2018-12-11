@@ -9,6 +9,7 @@ using System.Data;
 
 namespace Video_Rental_System
 {
+    //login class
     class User_Login
     {
        SqlConnection Sqlconn = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
@@ -16,7 +17,7 @@ namespace Video_Rental_System
        SqlDataReader SqlReader;
        string Sqlstr;
 
-        // Methods
+        // below code is  for login the user account and paaword
         public bool User_Log_method(int userid, string password)
         {
          

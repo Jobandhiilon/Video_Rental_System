@@ -21,12 +21,13 @@ namespace Video_Rental_System
     public partial class Register : Window
     {
         public Register()
-        {
+        {// below code helps to open the resister page in the center of screen
             InitializeComponent();
             base.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
         }
 
+        // Submit button coding
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
@@ -45,9 +46,12 @@ namespace Video_Rental_System
                 command1.CommandText = str;
                 connection.Open();
                 command1.ExecuteReader();
+                // pop up message when your account successfully created
                 MessageBox.Show("Data Inserted successfully");
                 connection.Close();
+                // to return back to the main window
                 new MainWindow().Show();
+                // below code is for close this page
                 base.Close();
             }
             catch (Exception exception)
@@ -59,6 +63,9 @@ namespace Video_Rental_System
             base.Close();
         }
 
-       
+        private void Password_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -22,20 +22,25 @@ namespace Video_Rental_System
     {
         public MainWindow()
         {
+            //below code is to open our project in the center of screen.
             InitializeComponent();
             base.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
         }
-
+        //login button coding
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            // To open the login page
             new Login().Show();
+            //close this window
             base.Close();
         }
-
+        // Register button coding
         private void Register_Click(object sender, RoutedEventArgs e)
         {
+            // to open the register page
             new Register().Show();
+            // for close this window
             base.Close();
         }
 

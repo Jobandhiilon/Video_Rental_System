@@ -16,7 +16,7 @@ namespace Video_Rental_System
         private SqlDataReader SqlReader;
         private string Str;
 
-        // Methods
+        // for adding the video
         public void Add_video(string Rating_TextBox, string Title_TextBox, string Year_TextBox, string Rental_Cost_TextBox, string Copies_TextBox, string Plot_TextBox, string Genre_TextBox)
         {
             this.Cmd.Parameters.Clear();
@@ -45,6 +45,7 @@ namespace Video_Rental_System
             }
         }
 
+        // below code is for deleting the video
         public void Delete_video(int MovieID)
         {
             try
@@ -63,14 +64,14 @@ namespace Video_Rental_System
                 MessageBox.Show("Database Exception" + exception.Message);
             }
             finally
-            {
+            { 
                 if (this.Conn != null)
                 {
                     this.Conn.Close();
                 }
             }
         }
-
+        //below code is for update video data in tables
         public DataTable LoadvideoData()
         {
             DataTable table = new DataTable();
@@ -95,6 +96,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
+        // below code is for upate rented movies in tables
         public DataTable LoadRentedData()
         {
             DataTable table = new DataTable();
@@ -119,7 +121,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-
+        // below code is for checking the customer who rented most movies
         public DataTable LoadCustomerRankData()
         {
             DataTable table = new DataTable();
@@ -144,7 +146,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-
+        // below code is for checking the most rented movie
         public DataTable LoadMovieRankData()
         {
             DataTable table = new DataTable();
@@ -172,8 +174,7 @@ namespace Video_Rental_System
 
 
 
-
-
+        //below code is for update the video
         public void Update_video(int MovieID, string Rating, string Title, string Year, int Rental_Cost, string Copies, string Plot, string Genre)
         {
             try
