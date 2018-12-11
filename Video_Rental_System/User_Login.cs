@@ -17,7 +17,7 @@ namespace Video_Rental_System
        SqlDataReader SqlReader;
        string Sqlstr;
 
-        // below code is  for login the user account and paaword
+        //User_Log_method() is accepting userid and password as a parameter and validating that input user ID and password is correct or not.
         public bool User_Log_method(int userid, string password)
         {
          

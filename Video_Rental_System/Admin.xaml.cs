@@ -29,13 +29,14 @@ namespace Video_Rental_System
         public int RentID;
 
         SqlConnection con;
+        //Database connection
         String Constr = "Data Source=DHILLON\\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True";
         SqlCommand command;
         SqlDataReader reader;
         DataTable tbl = new DataTable();
         public Admin()
         {
-            
+            //Below code is used fpr open the project in the centre of the screen.
             this.InitializeComponent();
             base.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 

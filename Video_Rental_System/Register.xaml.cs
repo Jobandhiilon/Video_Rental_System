@@ -27,7 +27,7 @@ namespace Video_Rental_System
 
         }
 
-        // Submit button coding
+        // Submit_Click() is used to submit the register data into the register tables from the textboxes.
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
@@ -64,6 +64,11 @@ namespace Video_Rental_System
         }
 
         private void Password_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Age_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

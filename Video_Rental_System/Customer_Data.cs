@@ -11,13 +11,13 @@ namespace Video_Rental_System
 {
     class Customer_Data
     {
-        // Fields
+        // Fields and database connection
         private SqlConnection Sqlconn = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
         private SqlCommand Sqlcmd = new SqlCommand();
         private SqlDataReader SqlReader;
         private string Sqlstr;
 
-        // Methods
+        // Add_Customer() method is used for insert Customer data into the Customer tables after getting this data from textboxes.
         public void Add_Customer(string FirstName_TextBox, string LastName_TextBox, string Address_TextBox, string Phone_TextBox)
         {
             this.Sqlcmd.Parameters.Clear();
@@ -42,7 +42,7 @@ namespace Video_Rental_System
                 this.Sqlconn.Close();
             }
         }
-
+        // Delete_Customer() method is used for Delete data into the customers tables after getting this data from textboxes.
         public void Delete_Customer(int CustomerID)
         {
             try
@@ -68,7 +68,7 @@ namespace Video_Rental_System
                 }
             }
         }
-
+        //LoadCustomerdata() method is used to load the customer data into the data grid from customer table.
         public DataTable LoadCustomerData()
         {
             DataTable table = new DataTable();
@@ -93,7 +93,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-
+        // Update_Customer() method is used for update data into the customers tables after getting this data from textboxes.
         public void Update_Customer(int CustomerID, string FirstName, string LastName, string Address, int Phone)
         {
             try

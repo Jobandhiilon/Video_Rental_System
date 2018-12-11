@@ -11,12 +11,13 @@ namespace Video_Rental_System
 {
     class Video
     {
+        //Database connection
         private SqlConnection Conn = new SqlConnection(@"Data Source=DHILLON\SQLEXPRESS;Initial Catalog=DbLogin;Integrated Security=True");
         private SqlCommand Cmd = new SqlCommand();
         private SqlDataReader SqlReader;
         private string Str;
 
-        // for adding the video
+        // Add_video() method is used for insert movie data into the movie tables after getting this data from textboxes.
         public void Add_video(string Rating_TextBox, string Title_TextBox, string Year_TextBox, string Rental_Cost_TextBox, string Copies_TextBox, string Plot_TextBox, string Genre_TextBox)
         {
             this.Cmd.Parameters.Clear();
@@ -45,7 +46,7 @@ namespace Video_Rental_System
             }
         }
 
-        // below code is for deleting the video
+        // Delete_video() is used for delete video in the movie tables.
         public void Delete_video(int MovieID)
         {
             try
@@ -71,7 +72,7 @@ namespace Video_Rental_System
                 }
             }
         }
-        //below code is for update video data in tables
+        //Loadvideodata() method is used to load the video data into the data grid from video table.
         public DataTable LoadvideoData()
         {
             DataTable table = new DataTable();
@@ -96,7 +97,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-        // below code is for upate rented movies in tables
+        //LoadRenteddata() method is used to load the rented data into the data grid from rented table.
         public DataTable LoadRentedData()
         {
             DataTable table = new DataTable();
@@ -121,7 +122,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-        // below code is for checking the customer who rented most movies
+        //LoadCustomerRankData() method is used to load the best customer data into the grid from CustRatting table.
         public DataTable LoadCustomerRankData()
         {
             DataTable table = new DataTable();
@@ -146,7 +147,7 @@ namespace Video_Rental_System
                 return null;
             }
         }
-        // below code is for checking the most rented movie
+        //LoadMovieRankData() method is used to load the most popular movie's data into the grid from Movieratting table.
         public DataTable LoadMovieRankData()
         {
             DataTable table = new DataTable();
@@ -174,7 +175,7 @@ namespace Video_Rental_System
 
 
 
-        //below code is for update the video
+        // Update_video() method is used for update movie data into the movie tables after getting this data from textboxes..
         public void Update_video(int MovieID, string Rating, string Title, string Year, int Rental_Cost, string Copies, string Plot, string Genre)
         {
             try
