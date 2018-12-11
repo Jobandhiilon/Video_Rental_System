@@ -215,7 +215,7 @@ namespace Video_Rental_System
                 else
                 {
                     //it will be show the pop up message hwen a customer didn't return a movie but you trying to delete his account.
-                    MessageBox.Show("Movie is on Rent, so first return movie then delete it");
+                    MessageBox.Show("Sorry, the movie is on rent so you can't delete it until it returns back.");
                 }
             }
         }
