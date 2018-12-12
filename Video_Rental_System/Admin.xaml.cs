@@ -309,12 +309,12 @@ namespace Video_Rental_System
                     tbl = this.getRecords(qry);
                         
                     int rent = Convert.ToInt32(tbl.Rows[tbl.Rows.Count - 1]["MovieCopy"]);
-                // MessageBox.Show(rent.ToString());
-
+                MessageBox.Show(rent.ToString());
+             
                 //after giving the movie on rent the counting must be decreased by 1
                 rent = rent - 1;
 
-                    if (rent >= 0)
+                if (rent >= 0)
                 {
                     // after decreasing the Counting the record mudt be updated  using the update query
                     qry = "";
@@ -379,15 +379,7 @@ namespace Video_Rental_System
 
 
                         }
-
-
-
-
-
-
-
-
-                    qry = "";
+                     qry = "";
                     // insert the Record to the Rented MOvies table after issuing the Movie on Rent  using RUNIDU Function
                     qry = "insert into RentedMovies(MovieIDFK,CustIDFK,DateRented,DateReturned) values(" + Convert.ToInt32(MovieDFK_TextBox.Text.ToString()) + "," + Convert.ToInt32(CustDFK_TextBox.Text.ToString()) + ",'" + DateRented_TextBox.Text.ToString() + "','Date Returned')";
                         this.runIDU(qry);
