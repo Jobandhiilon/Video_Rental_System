@@ -34,6 +34,7 @@ namespace Video_Rental_System
         SqlCommand command;
         SqlDataReader reader;
         DataTable tbl = new DataTable();
+        int cpy = 0;
         public Admin()
         {
             //Below code is used fpr open the project in the centre of the screen.
@@ -90,8 +91,25 @@ namespace Video_Rental_System
         {
             //update the whole record of the VIdeo and pass the data to the Update_Video function using the object of the class
             int rent = Convert.ToInt32(Rental_Cost_TextBox.Text);
+
+
             Obj_video.Update_video(MovieID,Rating_TextBox.Text, Title_TextBox.Text, Year_TextBox.Text, rent, Copies_TextBox.Text,Plot_TextBox.Text,Genre_TextBox.Text);
+            String qry = "";
+            int copy = Convert.ToInt32(Copies_TextBox.Text.ToString()) - cpy;
+            qry = "select * from tbMovies where  MovieID='" + MovieID + "'";
+            DataTable tbl = new DataTable();
+            tbl = this.getRecords(qry);
+            int olcpy = Convert.ToInt32(tbl.Rows[0]["MovieCopy"].ToString());
+            olcpy = olcpy + copy;
+            MessageBox.Show(olcpy.ToString());
+            qry = "update tbMovies set MovieCopy=" +olcpy + " where MovieID='"+MovieID+"'";
+
+            this.runIDU(qry);
+
+
             MessageBox.Show("Movie Updated");
+
+
             VideoDG.ItemsSource = Obj_video.LoadvideoData().DefaultView;
             Rating_TextBox.Text = "";
             Title_TextBox.Text = "";
@@ -137,6 +155,7 @@ namespace Video_Rental_System
             Year_TextBox.Text = Convert.ToString(view["Year"]);
             Rental_Cost_TextBox.Text = Convert.ToString(view["Rental_Cost"]);
             Copies_TextBox.Text = Convert.ToString(view["Copies"]);
+            cpy = Convert.ToInt32(view["Copies"]);
             Plot_TextBox.Text = Convert.ToString(view["Plot"]);
             Genre_TextBox.Text = Convert.ToString(view["Genre"]);
             VideoDG.ItemsSource = Obj_video.LoadvideoData().DefaultView;
@@ -256,7 +275,7 @@ namespace Video_Rental_System
                 //inser the record after getting the record in the Movies tables to keep the record of the no of copies of the movies
                 qry = "insert into tbMovies(MovieID,MovieCopy)values('" + id.ToString() + "'," + Convert.ToInt32(Copies_TextBox.Text.ToString()) + ")";
                 this.runIDU(qry);
-
+                MessageBox.Show("Video Record is Saved");
 
                 //reload the data in the Grid
                 VideoDG.ItemsSource = Obj_video.LoadvideoData().DefaultView;
@@ -267,6 +286,7 @@ namespace Video_Rental_System
                 Copies_TextBox.Text = "";
                 Plot_TextBox.Text = "";
                 Genre_TextBox.Text = "";
+
             }
         }
 
@@ -291,11 +311,17 @@ namespace Video_Rental_System
             // get the record of the Customer How much MOvie he already have on rent if he has more then 2 movies on rent then he can't be able to get the movie on rent anymore
 
             String qry = "";
-               
+            int count = 1;
             // this task is done by using select query
             qry = "select * from RentedMovies where CustIDFK=" + Convert.ToInt32(CustDFK_TextBox.Text.ToString()) + "";
-                tbl = this.getRecords(qry);
-                if (tbl.Rows.Count > 1)
+            tbl = this.getRecords(qry);
+            for (int x = 0; x <=tbl.Rows.Count - 1; x++) {
+                if (tbl.Rows[x]["DateReturned"].ToString().Equals("Date Returned")) {
+                    count=count+1;
+                }
+            }
+            //MessageBox.Show(count.ToString());
+            if (count > 2)
                 {
                 // if he already have more than 2 movie on rent then this message will be print
                 MessageBox.Show("You Can't get Rental Movie Any More ");
